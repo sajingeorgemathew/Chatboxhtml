@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Georgo Chat Widget</title>
+  <style>
+    #chatButton {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    #chatPopup {
+      display: none;
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      z-index: 1000;
+    }
+
+    #chatPopup iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    #closeBtn {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      font-size: 18px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    #headerBar {
+      background-color: #4a90e2;
+      padding: 8px;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <button id="chatButton">💬</button>
+
+  <div id="chatPopup">
+    <div id="headerBar">
+      Georgo Chat
+      <button id="closeBtn">✕</button>
+    </div>
+    <iframe src="https://georgo-chat-frontend.vercel.app"></iframe>
+  </div>
+
+  <script>
+    const chatBtn = document.getElementById('chatButton');
+    const chatPopup = document.getElementById('chatPopup');
+    const closeBtn = document.getElementById('closeBtn');
+
+    chatBtn.onclick = () => {
+      chatPopup.style.display = 'block';
+    }
+
+    closeBtn.onclick = () => {
+      chatPopup.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
